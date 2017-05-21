@@ -4,8 +4,10 @@ var http = require('http'),
     util = require('util'),
     fs = require('fs'),
     forms = require('forms'),
+    Entities = require('html-entities').AllHtmlEntities,
     jsontemplate = require('./json-template');
 
+const entities = new Entities();
 const dns = require('dns');
 
 var fields = forms.fields,
@@ -24,13 +26,16 @@ var reg_form = forms.create({
 http.createServer(function (req, res) {
     reg_form.handle(req, {
         success: function (form) {
-            res.writeHead(200, { 'Content-Type': 'text/html' });
-            var url = form.data['url'].toString('utf-8').trim()
-            dns.lookup(url, (err, address, family) => {
+            res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+            // convert uri escaping. %26%2345815 => &#45815;
+            var url = decodeURIComponent(form.data['url'].toString('utf-8').trim())
+            // decode html escaping &#45815; => 닷
+            var utf8URL = entities.decode(url)
+            dns.lookup(utf8URL, (err, address, family) => {
               if (err) {
-                res.end(`<h1>Error occured for domain ${url}:  ${err.toString()}</h1>`)
+                res.end(`<h1>Error occured for domain ${utf8URL}:  ${err.toString()}</h1>`)
               } else {
-                res.end(`<h1>IP Address for domain ${url} is ${address}</h1>`);
+                res.end(`<h1>IP Address for domain ${utf8URL} is ${address}</h1>`);
               }
             });
         },
