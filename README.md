@@ -3,7 +3,10 @@ Simple nodejs app to resolve utf-8 domains
 
 # Dependency
 
-`npm install forms`
+```
+npm install forms
+npm install html-entities
+```
 
 # Run
 
