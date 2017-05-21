@@ -1,12 +1,11 @@
+[![forthebadge](http://forthebadge.com/images/badges/approved-by-george-costanza.svg)](http://forthebadge.com)
+
 # URL Resovler
-Simple nodejs app to resolve utf-8 domains
+Simple nodejs app to resolve utf-8 domains. Developed for fun, in order to resolve IP addresses of international domains, such as [www.mysite.닷넷](www.mysite.닷넷).
 
-# Dependency
+# Install
 
-```
-npm install forms
-npm install html-entities
-```
+`npm install`
 
 # Run
 

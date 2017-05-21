@@ -1,0 +1,29 @@
+{
+  "name": "url-resolver",
+  "version": "1.0.0",
+  "description": "Simple web app that resolve any domain into its IP address",
+  "main": "server.js",
+  "dependencies": {
+    "forms": "^1.3.0",
+    "html-entities": "^1.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaskavalci/url-resolver.git"
+  },
+  "keywords": [
+    "url",
+    "dns"
+  ],
+  "author": "Halil Kaskavalci",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/kaskavalci/url-resolver/issues"
+  },
+  "homepage": "https://github.com/kaskavalci/url-resolver#readme"
+}
